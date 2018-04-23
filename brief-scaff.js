@@ -41,11 +41,35 @@ const readConfig = function readConfig(content, resolve) {
 
   resolve(blueprints);
 };
+const makeThings = function makeThings(blueprintConfig, resolve) {
+  const worker = async function dirFileMaker(config, parentDir) {
+    if (!!config.dirs) {
+      config.dirs.forEach(dirFileMaker);
+    } else if (!!config.files) {
+      const dirName = config.name;
+      const dirPath = PATH.join(HOMEDIR, dirName);
+
+      log(`dir ${dirName}`);
+      await FILE.makeDir(dirPath);
+      config.files.forEach(dirConfig => dirFileMaker(dirConfig, dirPath));
+    } else {
+      const fileName = config.name;
+      const fileContent = config.content;
+
+      log(`file ${fileName}`);
+      await FILE.write(PATH.join(parentDir, fileName), fileContent);
+    }
+  };
+
+  worker(blueprintConfig);
+  resolve();
+};
 
 
 const roadmap = [
   [HOMEDIR],    checkDir,
   [checkDir],   getConfig,
   [getConfig],  readConfig,
+  [readConfig], makeThings,
 ];
 BRIEF(roadmap);

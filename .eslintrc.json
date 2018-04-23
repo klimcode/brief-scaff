@@ -5,6 +5,7 @@
         "jest/globals": true
     },
     "rules": {
-        "no-multi-spaces": 0
+        "no-multi-spaces": 0,
+        "no-extra-boolean-cast": 0
     }
 }

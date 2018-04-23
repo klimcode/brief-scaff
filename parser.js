@@ -70,7 +70,7 @@ const getBlueprint = function getBlueprint(filesArray, args) {
         value,
       );
 
-      if (type === 'dir') dirs.push({ name: replaced, files: [] });
+      if (type === 'dir') dirs.push({ name: replaced.slice(1), files: [] });
       else {
         const { files } = lastOf(dirs);
         if (type === 'file') files.push({ name: replaced, content: '' });
