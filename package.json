@@ -1,7 +1,7 @@
 {
   "name": "brief-scaff",
   "version": "0.1.0",
-  "description": "Easy way to yield a plain-html web page without any JS from your React website",
+  "description": "A tool for scaffolding",
   "main": "brief-scaff.js",
   "bin": {
     "brief-scaff": "./brief-scaff.js"
@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "brief-async": "^0.4.0",
-    "fs-handy-wraps": "^2.1.0"
+    "fs-handy-wraps": "^2.1.0",
+    "opn": "^5.3.0"
   }
 }
