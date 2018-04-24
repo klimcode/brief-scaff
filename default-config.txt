@@ -1,0 +1,22 @@
+react Mockup
+    /src/Mockup
+        index.js
+            export { default as Mockup } from './Mockup';
+            export { default as MockupContainer } from './MockupContainer';
+            
+        MockupContainer.js
+            import Mockup from './Mockup';
+            
+            export default Mockup;
+            
+        Mockup.js
+            import React, { Component } from 'react';
+            
+            export default class Mockup extends Component {
+                render() {
+                    return (
+                        <div></div>
+                    )
+                }
+            }
+            
